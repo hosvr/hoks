@@ -1,0 +1,19 @@
+apiVersion: kops.k8s.io/v1alpha2
+kind: InstanceGroup
+metadata:
+  creationTimestamp: "2020-02-07T04:37:46Z"
+  labels:
+    kops.k8s.io/cluster: hoks.k8s.local
+  name: master-us-east4-c
+spec:
+  image: cos-cloud/cos-stable-65-10323-99-0
+  machineType: n1-standard-1
+  maxSize: 1
+  minSize: 1
+  nodeLabels:
+    kops.k8s.io/instancegroup: master-us-east4-c
+  role: Master
+  subnets:
+  - us-east4
+  zones:
+  - us-east4-c

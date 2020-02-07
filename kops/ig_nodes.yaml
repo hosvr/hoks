@@ -1,0 +1,19 @@
+apiVersion: kops.k8s.io/v1alpha2
+kind: InstanceGroup
+metadata:
+  creationTimestamp: "2020-02-07T04:37:47Z"
+  labels:
+    kops.k8s.io/cluster: hoks.k8s.local
+  name: nodes
+spec:
+  image: cos-cloud/cos-stable-65-10323-99-0
+  machineType: n1-standard-2
+  maxSize: 2
+  minSize: 2
+  nodeLabels:
+    kops.k8s.io/instancegroup: nodes
+  role: Node
+  subnets:
+  - us-east4
+  zones:
+  - us-east4-c
