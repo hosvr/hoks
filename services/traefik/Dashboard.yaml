@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: traefik
+  namespace: traefik
+spec:
+  selector:
+    k8s-app: traefik-ingress-lb
+  type: NodePort
+  ports:
+  - name: web
+    port: 80
+    targetPort: 8080
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: traefik
+  namespace: traefik
+spec:
+  rules:
+  - host: hoks.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: traefik
+          servicePort: web
