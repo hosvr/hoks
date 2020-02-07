@@ -1,11 +1,11 @@
 provider "google" {
-  credentials = file("terraformServiceAccount.json")
+  credentials = file("account.json")
   project = "hoks-io"
   region  = "us-east4"
   zone    = "us-east4-c"
 }
 
-resource "google_container_cluster" "hoks" {
+resource "google_container_cluster" "default" {
   name        = "${var.name}"
   project     = "${var.project}"
   description = "hoks gke cluster"
